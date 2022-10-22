@@ -1,41 +1,48 @@
 //{ Driver Code Starts
+// Initial Template for C++
+
 #include <bits/stdc++.h>
 using namespace std;
 
 // } Driver Code Ends
+// User function Template for C++
+
 class Solution
 {
 public:
-    long long reversedBits(long long X)
+    string is_palindrome(int n)
     {
-        // code here
-        long rev = 0, rem = 0;
-        int k = 1;
-        
-        while (k <= 32)
+        // Code here.
+        int N = n, rev, rem = 0;
+
+        while (n > 0)
         {
-            rem = X % 2;
-            rev = rev * 2 + rem;
-            X /= 2;
-            k++;
+            rem = n % 10;
+            rev = rev * 10 + rem;
+            n /= 10;
         }
-        return rev;
+
+        if (N == rev)
+            cout << "Yes";
+        else
+            cout << "No";
     }
 };
 
 //{ Driver Code Starts.
 int main()
 {
-    int t;
-    cin >> t;
-    while (t--)
+    int T;
+    cin >> T;
+    while (T--)
     {
-        long long X;
-        cin >> X;
-
+        int n;
+        cin >> n;
         Solution ob;
-        cout << ob.reversedBits(X) << endl;
+        string ans = ob.is_palindrome(n);
+        cout << ans << "\n";
     }
     return 0;
 }
+
 // } Driver Code Ends
